@@ -1,38 +1,22 @@
 #!/usr/bin/env python3
 
-class Table(dict):
-    def __getattr__(self, name):
-        return self[name] if name in self else None
+import table
 
-    def __setattr__(self, name, value):
-        if value is None:
-            del self[name]
-        else:
-            self[name] = value
-
-    def __delattr__(self, name):
-        del self[name]
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(**kwargs)
-        for i, v in enumerate(args):
-            self[i] = v
-
-class Vertex(Table):
+class Vertex(table.Table):
     def __init__(self, x, y, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.x = x
         self.y = y
 
-class Sector(Table):
+class Sector(table.Table):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-class Sidedef(Table):
+class Sidedef(table.Table):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-class Linedef(Table):
+class Linedef(table.Table):
     def __init__(self, v1, v2, sidefront, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.v1 = v1
@@ -46,7 +30,7 @@ class Thing(Vertex):
 
 class Map(object):
     def toTable(self):
-        return Table(
+        return table.Table(
             namespace = self.namespace,
             vertices = self.vertices,
             sectors = self.sectors,
