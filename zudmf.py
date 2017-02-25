@@ -44,7 +44,16 @@ class Thing(Vertex):
         super().__init__(*args, **kwargs)
         self.type = type
 
-class Map(Table):
+class Map(object):
+    def toTable(self):
+        return Table(
+            namespace = self.namespace,
+            vertices = self.vertices,
+            sectors = self.sectors,
+            sidedefs = self.sidedefs,
+            linedefs = self.linedefs,
+            things = self.things)
+
     def __init__(self, namespace = "ZDoom", template = False):
         self.namespace = namespace
         self.vertices = [
