@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 import table
 
@@ -36,7 +37,8 @@ class Map(object):
             sectors = self.sectors,
             sidedefs = self.sidedefs,
             linedefs = self.linedefs,
-            things = self.things)
+            things = self.things
+        )
 
     def __init__(self, namespace = "ZDoom", template = False):
         self.namespace = namespace
