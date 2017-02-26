@@ -6,12 +6,12 @@ import sys
 
 from PyQt5 import QtWidgets
 
-import qt5gui
+from . import qt5gui
 
 if __name__ == "__main__":
     pid = os.fork()
     if pid:
-        print("PID={}".format(pid))
+        print(pid)
     else:
         app = QtWidgets.QApplication(sys.argv)
 
