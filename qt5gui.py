@@ -4,13 +4,11 @@
 from PyQt5 import QtWidgets
 
 class MapEditorWindow(QtWidgets.QMainWindow):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, title, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-class MapEditor(object):
-    def __init__(self, argv, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.qapplication = QtWidgets.QApplication(argv)
+        self.setCentralWidget(QtWidgets.QGraphicsView())
+        self.setWindowTitle(title)
 
-    def exec(self):
-        return self.qapplication.exec()
+        self.centralWidget().show()
+        self.show()
