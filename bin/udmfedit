@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-if type -p "${0##*/}"
-then
-  python -m "$0"
-else
-  cd "$PWD/${0%/*}/../src" && python -m "${0##*/}"
-fi

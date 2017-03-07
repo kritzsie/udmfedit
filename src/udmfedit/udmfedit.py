@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import os
-import sys
+import os, sys
 
 from PyQt5 import QtWidgets
 
-from . import qt5gui
+import gui.qt5
 
-if __name__ == "__main__":
+def main():
     pid = os.fork()
     if pid:
         print(pid)
     else:
         app = QtWidgets.QApplication(sys.argv)
 
-        win = qt5gui.MapEditorWindow("Qt UDMF Editor")
+        win = gui.qt5.MapEditorWindow()
+        win.showMaximized()
 
-        exit(app.exec())
+        return app.exec()
+
+if __name__ == "__main__":
+    main()
