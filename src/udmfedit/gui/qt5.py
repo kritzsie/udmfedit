@@ -10,10 +10,8 @@ class MapEditorWindow(QtWidgets.QWidget, qt5ui.Ui_window):
         super().__init__(*args, **kwargs)
 
         self.setupUi(self)
-        #scene = QtWidgets.QGraphicsScene()
-        #view = QtWidgets.QGraphicsView(scene)
 
-        #scene.setBackgroundBrush(QtGui.QBrush(QtCore.Qt.black))
+        scene = QtWidgets.QGraphicsScene()
+        self.graphicsView.setScene(scene)
 
-        #self.setCentralWidget(view)
-        #self.setWindowTitle(title)
+        scene.setBackgroundBrush(QtGui.QBrush(QtCore.Qt.black))
